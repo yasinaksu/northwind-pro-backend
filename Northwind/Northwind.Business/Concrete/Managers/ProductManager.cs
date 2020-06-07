@@ -1,4 +1,5 @@
 ﻿using Core.Aspects.PostSharp.ValidationAspects;
+using Core.DataAccess;
 using Northwind.Business.Abstract;
 using Northwind.Business.ValidationRules.FluentValidation;
 using Northwind.DataAccess.Abstract;
@@ -14,10 +15,12 @@ namespace Northwind.Business.Concrete.Managers
     public class ProductManager : IProductService
     {
         private readonly IProductDal _productDal;
+        private readonly IQueryableRepository<Product> _queryable;        
 
-        public ProductManager(IProductDal productDal)
+        public ProductManager(IProductDal productDal, IQueryableRepository<Product> queryable)
         {
             _productDal = productDal;
+            _queryable = queryable;
         }
 
         [FluentValidationAspect(typeof(ProductValidator))]
