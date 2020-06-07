@@ -1,4 +1,5 @@
-﻿using Northwind.Entities.Domains;
+﻿using Northwind.DataAccess.Concrete.EntityFramework.Mapping;
+using Northwind.Entities.Domains;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -16,5 +17,9 @@ namespace Northwind.DataAccess.Concrete.EntityFramework
         }
 
         public DbSet<Product> Products { get; set; }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Configurations.Add(new ProductMap());
+        }
     }
 }
