@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntityFrameworkTests\EfProductDalTests.cs" />
+    <Compile Include="NHibernateTests\NhProductDalTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
