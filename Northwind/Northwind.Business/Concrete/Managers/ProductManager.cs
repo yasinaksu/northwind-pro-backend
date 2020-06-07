@@ -23,6 +23,11 @@ namespace Northwind.Business.Concrete.Managers
             return _productDal.Add(product);
         }
 
+        public Product Update(Product product)
+        {
+            return _productDal.Update(product);
+        }
+
         public List<Product> GetAll()
         {
             return _productDal.GetAll();
