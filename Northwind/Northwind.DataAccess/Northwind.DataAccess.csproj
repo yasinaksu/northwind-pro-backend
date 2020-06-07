@@ -62,9 +62,10 @@
   <ItemGroup>
     <Compile Include="Abstract\IProductDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfProductDal.cs" />
-    <Compile Include="Concrete\EntityFramework\Mapping\ProductMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mappings\ProductMap.cs" />
     <Compile Include="Concrete\EntityFramework\NorthwindContext.cs" />
     <Compile Include="Concrete\NHibernate\Helpers\SqlServerHelper.cs" />
+    <Compile Include="Concrete\NHibernate\Mappings\ProductMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

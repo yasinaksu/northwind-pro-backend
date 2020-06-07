@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Northwind.DataAccess.Concrete.EntityFramework.Mapping
+namespace Northwind.DataAccess.Concrete.EntityFramework.Mappings
 {
     public class ProductMap : EntityTypeConfiguration<Product>
     {

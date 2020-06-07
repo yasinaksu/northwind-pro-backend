@@ -1,4 +1,4 @@
-﻿using Northwind.DataAccess.Concrete.EntityFramework.Mapping;
+﻿using Northwind.DataAccess.Concrete.EntityFramework.Mappings;
 using Northwind.Entities.Domains;
 using System;
 using System.Collections.Generic;
