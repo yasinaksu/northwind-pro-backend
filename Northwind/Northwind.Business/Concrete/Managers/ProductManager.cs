@@ -25,7 +25,7 @@ namespace Northwind.Business.Concrete.Managers
 
         [FluentValidationAspect(typeof(ProductValidator))]
         public Product Add(Product product)
-        {
+        {            
             return _productDal.Add(product);
         }
 

@@ -60,6 +60,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -68,6 +69,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aspects\PostSharp\TransactionAspects\TransactionScopeAspect.cs" />
     <Compile Include="Aspects\PostSharp\ValidationAspects\FluentValidationAspect.cs" />
     <Compile Include="CrossCuttingConcerns\Validation\FluentValidation\ValidatorTool.cs" />
     <Compile Include="DataAccess\EntityFramework\EfEntityRepositoryBase.cs" />
@@ -80,7 +82,9 @@
     <Compile Include="Entities\IEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="CrossCuttingConcerns\Caching\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
