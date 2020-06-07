@@ -41,7 +41,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\ICategoryService.cs" />
+    <Compile Include="Abstract\IProductService.cs" />
+    <Compile Include="Concrete\Managers\CategoryManager.cs" />
+    <Compile Include="Concrete\Managers\ProductManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{ABEE1029-3C84-4638-85BB-AEC902C9F3FA}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Northwind.DataAccess\Northwind.DataAccess.csproj">
+      <Project>{34DDF90C-A989-41AD-83D0-B4AFFD6E2760}</Project>
+      <Name>Northwind.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Northwind.Entities\Northwind.Entities.csproj">
+      <Project>{E9894C20-562C-4F76-8159-0D1D6C6A10CD}</Project>
+      <Name>Northwind.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
