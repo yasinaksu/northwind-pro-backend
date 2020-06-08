@@ -26,22 +26,26 @@ namespace Northwind.Business.Concrete.Managers
         }
 
         [FluentValidationAspect(typeof(ProductValidator))]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public Product Add(Product product)
         {            
             return _productDal.Add(product);
         }
 
         [FluentValidationAspect(typeof(ProductValidator))]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public Product Update(Product product)
         {
             return _productDal.Update(product);
         }
+
         [CacheAspect(typeof(MemoryCacheManager))]       
         public List<Product> GetAll()
         {
             return _productDal.GetAll();
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
         public Product GetById(int id)
         {
             return _productDal.Get(x => x.ProductId == id);
