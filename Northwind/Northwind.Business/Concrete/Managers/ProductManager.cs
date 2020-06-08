@@ -1,4 +1,6 @@
-﻿using Core.Aspects.PostSharp.ValidationAspects;
+﻿using Core.Aspects.PostSharp.CacheAspects;
+using Core.Aspects.PostSharp.ValidationAspects;
+using Core.CrossCuttingConcerns.Caching.Microsoft;
 using Core.DataAccess;
 using Northwind.Business.Abstract;
 using Northwind.Business.ValidationRules.FluentValidation;
@@ -34,7 +36,7 @@ namespace Northwind.Business.Concrete.Managers
         {
             return _productDal.Update(product);
         }
-
+        [CacheAspect(typeof(MemoryCacheManager))]       
         public List<Product> GetAll()
         {
             return _productDal.GetAll();
