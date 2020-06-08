@@ -1,4 +1,8 @@
-﻿using System.Reflection;
+﻿using Core.Aspects.PostSharp.LogAspects;
+using Core.Aspects.PostSharp.ValidationAspects;
+using Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
+using Northwind.Business.ValidationRules.FluentValidation;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
@@ -34,3 +38,8 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+
+//Aspects
+[assembly: LogAspect(typeof(DatabaseLogger), AttributeTargetTypes = "Northwind.Business.Concrete.Managers.*")]
+//[assembly: FluentValidationAspect(typeof(ProductValidator),AttributeTargetTypes = "Northwind.Business.Concrete.Managers.ProductManager*Add*")]
+
