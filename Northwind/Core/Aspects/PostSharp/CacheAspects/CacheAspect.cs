@@ -47,6 +47,20 @@ namespace Core.Aspects.PostSharp.CacheAspects
             }
             base.OnInvoke(args);
             _cacheManager.Add(key, args.ReturnValue, _cacheByMinute);
+
+            //böylede yazılabilir sanırım
+            /*
+             *  if (_cacheManager.IsAdd(key))
+                {
+                    args.ReturnValue = _cacheManager.Get<object>(key);
+                    base.OnInvoke(args);
+                }
+                else
+                {
+                    base.OnInvoke(args);
+                    _cacheManager.Add(key, args.ReturnValue, _cacheByMinute);
+                }
+            */
         }
     }
 }
