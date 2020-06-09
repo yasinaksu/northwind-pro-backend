@@ -18,18 +18,19 @@ namespace Northwind.MvcWebUI.Controllers
         }
 
         // GET: Account
-        public string Login(string userName, string password)
+        public string Login(string userName="yasinaksu", string password="12345")
         {
             var user = _userService.GetByUserNameAndPassword(userName, password);
             if (user != null)
             {
-                AuthenticationHelper.CreateAuthCookie(
-                user.Id,
-                user.UserName,
-                user.Email,
-                DateTime.Now.AddDays(15),
-                new string[] { "Admin,User" },
-                false, user.FirstName, user.LastName);
+                var userRoles = _userService.GetRolesByUser(user).Select(x => x.RoleName).ToArray();
+                    AuthenticationHelper.CreateAuthCookie(
+                    user.Id,
+                    user.UserName,
+                    user.Email,
+                    DateTime.Now.AddDays(15),
+                    userRoles,
+                    false, user.FirstName, user.LastName);
 
                 return "user is authenticated";
             }

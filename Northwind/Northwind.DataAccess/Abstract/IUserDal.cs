@@ -1,4 +1,5 @@
 ﻿using Core.DataAccess;
+using Northwind.Entities.ComplexTypes;
 using Northwind.Entities.Domains;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,6 @@ namespace Northwind.DataAccess.Abstract
 {
     public interface IUserDal : IEntityRepository<User>
     {
-
+        List<UserRoleDto> GetUserRoles(User user);
     }
 }
