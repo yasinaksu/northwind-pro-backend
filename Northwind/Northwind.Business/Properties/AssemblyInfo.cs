@@ -1,4 +1,5 @@
-﻿using Core.Aspects.PostSharp.LogAspects;
+﻿using Core.Aspects.PostSharp.ExceptionAspects;
+using Core.Aspects.PostSharp.LogAspects;
 using Core.Aspects.PostSharp.ValidationAspects;
 using Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 using Northwind.Business.ValidationRules.FluentValidation;
@@ -41,5 +42,6 @@ using System.Runtime.InteropServices;
 
 //Aspects
 [assembly: LogAspect(typeof(DatabaseLogger), AttributeTargetTypes = "Northwind.Business.Concrete.Managers.*")]
+[assembly: ExceptionLogAspect(typeof(DatabaseLogger), AttributeTargetTypes = "Northwind.Business.Concrete.Managers.*")]
 //[assembly: FluentValidationAspect(typeof(ProductValidator),AttributeTargetTypes = "Northwind.Business.Concrete.Managers.ProductManager*Add*")]
 
