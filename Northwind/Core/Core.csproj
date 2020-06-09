@@ -98,6 +98,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aspects\PostSharp\AuthorizationAspects\SecuredOperationAspect.cs" />
     <Compile Include="Aspects\PostSharp\CacheAspects\CacheAspect.cs" />
     <Compile Include="Aspects\PostSharp\CacheAspects\CacheRemoveAspect.cs" />
     <Compile Include="Aspects\PostSharp\ExceptionAspects\ExceptionLogAspect.cs" />

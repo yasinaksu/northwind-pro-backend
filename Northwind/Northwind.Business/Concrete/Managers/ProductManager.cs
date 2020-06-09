@@ -1,4 +1,5 @@
-﻿using Core.Aspects.PostSharp.CacheAspects;
+﻿using Core.Aspects.PostSharp.AuthorizationAspects;
+using Core.Aspects.PostSharp.CacheAspects;
 using Core.Aspects.PostSharp.LogAspects;
 using Core.Aspects.PostSharp.ValidationAspects;
 using Core.CrossCuttingConcerns.Caching.Microsoft;
@@ -42,6 +43,7 @@ namespace Northwind.Business.Concrete.Managers
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
+        [SecuredOperationAspect(Roles ="Admin,User")]
         public List<Product> GetAll()
         {
             return _productDal.GetAll();
