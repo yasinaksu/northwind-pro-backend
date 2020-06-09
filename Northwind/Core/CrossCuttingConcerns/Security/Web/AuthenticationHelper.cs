@@ -10,14 +10,14 @@ namespace Core.CrossCuttingConcerns.Security.Web
 {
     public class AuthenticationHelper
     {
-        public static void CreateAuthCookie(Guid id, string userName, string email, DateTime expiration, string[] roles, bool rememberMe, string firstName, string lastName)
+        public static void CreateAuthCookie(int id, string userName, string email, DateTime expiration, string[] roles, bool rememberMe, string firstName, string lastName)
         {
             var authTicket = new FormsAuthenticationTicket(1, userName, DateTime.Now, expiration, rememberMe, CreateAuthTags(email, roles, firstName, lastName, id));
             var encTicket = FormsAuthentication.Encrypt(authTicket);
             HttpContext.Current.Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encTicket));
         }
 
-        private static string CreateAuthTags(string email, string[] roles, string firstName, string lastName, Guid id)
+        private static string CreateAuthTags(string email, string[] roles, string firstName, string lastName, int id)
         {
             var stringBuilder = new StringBuilder();
             stringBuilder.Append(email);

@@ -66,10 +66,10 @@ namespace Core.CrossCuttingConcerns.Security.Web
             return ticket.Name;
         }
 
-        private Guid GetId(FormsAuthenticationTicket ticket)
+        private int GetId(FormsAuthenticationTicket ticket)
         {
             var data = ticket.UserData.Split('|');
-            return new Guid(data[4]);
+            return Convert.ToInt32(data[4]);
         }
     }
 }
