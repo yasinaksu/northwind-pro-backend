@@ -1,4 +1,5 @@
-﻿using Core.Aspects.PostSharp.AuthorizationAspects;
+﻿using AutoMapper;
+using Core.Aspects.PostSharp.AuthorizationAspects;
 using Core.Aspects.PostSharp.CacheAspects;
 using Core.Aspects.PostSharp.LogAspects;
 using Core.Aspects.PostSharp.ValidationAspects;
@@ -21,10 +22,12 @@ namespace Northwind.Business.Concrete.Managers
     public class ProductManager : IProductService
     {
         private readonly IProductDal _productDal;
+        private readonly IMapper _mapper;
 
-        public ProductManager(IProductDal productDal)
+        public ProductManager(IProductDal productDal, IMapper mapper)
         {
             _productDal = productDal;
+            _mapper = mapper;
         }
 
         [FluentValidationAspect(typeof(ProductValidator))]
@@ -45,7 +48,7 @@ namespace Northwind.Business.Concrete.Managers
         //[SecuredOperationAspect(Roles ="Admin,Editor")]
         public List<Product> GetAll()
         {
-            return AutoMapperHelper.MapToSameTypeList(_productDal.GetAll());
+            return _mapper.Map<List<Product>>(_productDal.GetAll());
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]

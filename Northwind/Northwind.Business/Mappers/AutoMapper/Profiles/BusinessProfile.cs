@@ -12,7 +12,7 @@ namespace Northwind.Business.Mappers.AutoMapper.Profiles
     {
         public BusinessProfile()
         {
-            CreateMap<Product,Product>()
+            CreateMap<Product, Product>();
         }
     }
 }

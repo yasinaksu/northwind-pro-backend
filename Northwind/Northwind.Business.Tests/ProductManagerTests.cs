@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using AutoMapper;
+using FluentValidation;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Northwind.Business.Concrete.Managers;
@@ -19,8 +20,9 @@ namespace Northwind.Business.Tests
         [ExpectedException(typeof(ValidationException))]
         public void Add_should_throw_validation_exception_when_unvalid_product_add()
         {
-            var mock = new Mock<IProductDal>();
-            var productManager = new ProductManager(mock.Object);
+            var mockProductDal = new Mock<IProductDal>();
+            var mockMapper = new Mock<IMapper>();
+            var productManager = new ProductManager(mockProductDal.Object, mockMapper.Object);
             productManager.Add(new Product());
         }
     }
