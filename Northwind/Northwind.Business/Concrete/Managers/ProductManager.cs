@@ -43,7 +43,7 @@ namespace Northwind.Business.Concrete.Managers
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [SecuredOperationAspect(Roles ="Admin,Editor")]
+        //[SecuredOperationAspect(Roles ="Admin,Editor")]
         public List<Product> GetAll()
         {
             return _productDal.GetAll();
