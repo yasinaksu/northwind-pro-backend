@@ -5,6 +5,7 @@ using Core.Aspects.PostSharp.ValidationAspects;
 using Core.CrossCuttingConcerns.Caching.Microsoft;
 using Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 using Core.DataAccess;
+using Core.Utilities.MapperHelpers;
 using Northwind.Business.Abstract;
 using Northwind.Business.ValidationRules.FluentValidation;
 using Northwind.DataAccess.Abstract;
@@ -20,12 +21,10 @@ namespace Northwind.Business.Concrete.Managers
     public class ProductManager : IProductService
     {
         private readonly IProductDal _productDal;
-        private readonly IQueryableRepository<Product> _queryable;
 
-        public ProductManager(IProductDal productDal, IQueryableRepository<Product> queryable)
+        public ProductManager(IProductDal productDal)
         {
             _productDal = productDal;
-            _queryable = queryable;
         }
 
         [FluentValidationAspect(typeof(ProductValidator))]
@@ -46,7 +45,7 @@ namespace Northwind.Business.Concrete.Managers
         //[SecuredOperationAspect(Roles ="Admin,Editor")]
         public List<Product> GetAll()
         {
-            return _productDal.GetAll();
+            return AutoMapperHelper.MapToSameTypeList(_productDal.GetAll());
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
