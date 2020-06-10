@@ -6,21 +6,12 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Northwind.Business.Abstract
+namespace Northwind.Business.ServiceContracts.Wcf
 {
     [ServiceContract]
-    public interface IProductService
+    public interface IProductDetailService
     {
         [OperationContract]
         List<Product> GetAll();
-
-        [OperationContract]
-        Product GetById(int id);
-
-        [OperationContract]
-        Product Add(Product product);
-
-        [OperationContract]
-        Product Update(Product product);
     }
 }
