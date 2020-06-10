@@ -72,6 +72,7 @@
     <Compile Include="Concrete\Managers\CategoryManager.cs" />
     <Compile Include="Concrete\Managers\ProductManager.cs" />
     <Compile Include="Concrete\Managers\UserManager.cs" />
+    <Compile Include="DependencyResolvers\Ninject\AutoMapperModule.cs" />
     <Compile Include="DependencyResolvers\Ninject\BusinessModule.cs" />
     <Compile Include="DependencyResolvers\Ninject\ValidationModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
