@@ -12,11 +12,14 @@
 </head>
 <body>
     <div>
-        @foreach (var product in Model.Products)
+        @Html.ValidationMessage("CustomException")
+    </div>
+    <div>
+        @*@foreach (var product in Model.Products)
         {
             @product.ProductName
             <br />
-        }
+        }*@
     </div>
 </body>
 </html>

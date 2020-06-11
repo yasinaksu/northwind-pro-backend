@@ -1,5 +1,6 @@
 using Core.CrossCuttingConcerns.Security.Web;
 using Core.Utilities.Mvc.Infrastructure;
+using FluentValidation.Mvc;
 using Northwind.Business.DependencyResolvers.Ninject;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,13 @@ namespace Northwind.MvcWebUI
 
             //Uygulama Wcf üzerinden iþler
             //ControllerBuilder.Current.SetControllerFactory(new NinjectControllerFactory(new ServiceModule(), new AutoMapperModule()));
+            ModelValidatorProviders.Providers.Clear();
+            FluentValidationModelValidatorProvider.Configure(provider =>
+            {
+                provider.ValidatorFactory = new NinjectValidatorFactory(new ValidationModule());
+                provider.AddImplicitRequiredValidator = false;
+
+            });
         }
 
         public override void Init()

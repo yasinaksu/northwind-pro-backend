@@ -1,5 +1,6 @@
 ﻿using Northwind.Business.Abstract;
 using Northwind.MvcWebUI.Areas.Admin.Models.ProductViewModels;
+using Northwind.MvcWebUI.Filters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,7 @@ namespace Northwind.MvcWebUI.Areas.Admin.Controllers
         }
 
         // GET: Admin/Product
+        [ExceptionHandler]
         public ActionResult Index()
         {
             var model = new ProductIndexViewModel { Products = _productService.GetAll() };

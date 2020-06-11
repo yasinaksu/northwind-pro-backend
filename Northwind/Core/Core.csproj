@@ -136,6 +136,7 @@
     <Compile Include="Utilities\Common\WcfProxy.cs" />
     <Compile Include="Utilities\MapperHelpers\AutoMapperHelper.cs" />
     <Compile Include="Utilities\Mvc\Infrastructure\NinjectControllerFactory.cs" />
+    <Compile Include="Utilities\Mvc\Infrastructure\NinjectValidatorFactory.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
