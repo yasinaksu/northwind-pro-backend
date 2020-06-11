@@ -4,6 +4,7 @@ using Core.DataAccess.NHibernate;
 using Ninject.Modules;
 using Northwind.Business.Abstract;
 using Northwind.Business.Concrete.Managers;
+using Northwind.Business.ServiceAdapters;
 using Northwind.DataAccess.Abstract;
 using Northwind.DataAccess.Concrete.EntityFramework;
 using Northwind.DataAccess.Concrete.NHibernate.Helpers;
@@ -28,6 +29,9 @@ namespace Northwind.Business.DependencyResolvers.Ninject
 
             Bind<IUserService>().To<UserManager>().InSingletonScope();
             Bind<IUserDal>().To<EfUserDal>().InSingletonScope();
+
+            Bind<IKpsService>().To<KpsServiceAtapter>().InSingletonScope();
+
 
             Bind(typeof(IQueryableRepository<>)).To(typeof(EfQueryableRepository<>)).InSingletonScope();
             Bind<DbContext>().To<NorthwindContext>().InSingletonScope();

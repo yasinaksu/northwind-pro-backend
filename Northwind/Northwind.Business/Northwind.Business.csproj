@@ -57,6 +57,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
@@ -73,6 +74,11 @@
     <Compile Include="Concrete\Managers\CategoryManager.cs" />
     <Compile Include="Concrete\Managers\ProductManager.cs" />
     <Compile Include="Concrete\Managers\UserManager.cs" />
+    <Compile Include="Connected Services\KpsServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="DependencyResolvers\Ninject\AutoMapperModule.cs" />
     <Compile Include="DependencyResolvers\Ninject\BusinessModule.cs" />
     <Compile Include="DependencyResolvers\Ninject\InstanceFactory.cs" />
@@ -80,10 +86,15 @@
     <Compile Include="DependencyResolvers\Ninject\ValidationModule.cs" />
     <Compile Include="Mappers\AutoMapper\Profiles\BusinessProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceAdapters\IKpsService.cs" />
+    <Compile Include="ServiceAdapters\KpsServiceAtapter.cs" />
     <Compile Include="ServiceContracts\Wcf\IProductDetailService.cs" />
     <Compile Include="ValidationRules\FluentValidation\ProductValidator.cs" />
+    <Compile Include="ValidationRules\FluentValidation\UserValidator.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj">
       <Project>{ABEE1029-3C84-4638-85BB-AEC902C9F3FA}</Project>
@@ -100,7 +111,26 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Connected Services\KpsServiceReference\KPSPublic.wsdl" />
+    <None Include="Connected Services\KpsServiceReference\Northwind.Business.KpsServiceReference.TCKimlikNoDogrulaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\KpsServiceReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\KpsServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\KpsServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\KpsServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -12,5 +12,6 @@ namespace Northwind.Business.Abstract
     {
         User GetByUserNameAndPassword(string userName, string password);
         List<UserRoleDto> GetRolesByUser(User user);
+        User Add(User user);
     }
 }
