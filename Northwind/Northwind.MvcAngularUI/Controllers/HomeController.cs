@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Northwind.MvcAngularUI.Controllers
+namespace DevFramework.Northwind.MvcAngularUI.Controllers
 {
     public class HomeController : Controller
     {

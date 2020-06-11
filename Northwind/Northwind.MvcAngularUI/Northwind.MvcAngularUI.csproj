@@ -91,6 +91,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="gulpfile.js" />
+    <Content Include="Scripts\systemjs.config.js" />
+    <Content Include="tsScripts\Scripts\app\app.component.js" />
+    <Content Include="tsScripts\Scripts\app\app.component.spec.js" />
+    <Content Include="tsScripts\Scripts\app\app.module.js" />
+    <Content Include="tsScripts\Scripts\environments\environment.js" />
+    <Content Include="tsScripts\Scripts\environments\environment.prod.js" />
+    <Content Include="tsScripts\Scripts\main.js" />
+    <Content Include="tsScripts\Scripts\polyfills.js" />
+    <Content Include="tsScripts\Scripts\test.js" />
+    <Content Include="tsScripts\src\app\app.component.css" />
+    <Content Include="tsScripts\src\app\app.component.html" />
+    <Content Include="tsScripts\src\index.html" />
+    <Content Include="tsScripts\src\styles.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -102,7 +116,22 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="package.json" />
     <None Include="packages.config" />
+    <Content Include="tsScripts\Scripts\app\app.component.js.map" />
+    <Content Include="tsScripts\Scripts\app\app.component.spec.js.map" />
+    <Content Include="tsScripts\Scripts\app\app.module.js.map" />
+    <Content Include="tsScripts\Scripts\environments\environment.js.map" />
+    <Content Include="tsScripts\Scripts\environments\environment.prod.js.map" />
+    <Content Include="tsScripts\Scripts\main.js.map" />
+    <Content Include="tsScripts\Scripts\polyfills.js.map" />
+    <Content Include="tsScripts\Scripts\test.js.map" />
+    <Content Include="tsScripts\src\tsconfig.app.json" />
+    <Content Include="tsScripts\src\tsconfig.json" />
+    <Content Include="tsScripts\src\tsconfig.spec.json" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\web.config" />
+    <Content Include="Views\_Layout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -113,9 +142,20 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="tsScripts\src\app\app.component.spec.ts" />
+    <TypeScriptCompile Include="tsScripts\src\app\app.component.ts" />
+    <TypeScriptCompile Include="tsScripts\src\app\app.module.ts" />
+    <TypeScriptCompile Include="tsScripts\src\environments\environment.prod.ts" />
+    <TypeScriptCompile Include="tsScripts\src\environments\environment.ts" />
+    <TypeScriptCompile Include="tsScripts\src\main.ts" />
+    <TypeScriptCompile Include="tsScripts\src\polyfills.ts" />
+    <TypeScriptCompile Include="tsScripts\src\test.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
